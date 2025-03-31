@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "./Navigation";
-import logo from "../../assets/Header/Logo.png";
+import logo from "../../assets/Header/logo.png";
 import talktoExpert from "../../assets/Header/talktoExpert.svg";
 
 const Header = () => {
