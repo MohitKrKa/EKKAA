@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import image from "../../assets/Chairman/Chairman.svg";
-import line from "../../assets/Chairman/line.svg";
+import image from "../../assets/Chairman/chairman.svg";
+import line from "../../assets/Chairman/Line.svg";
 
 const ChairmanSpeech = () => {
   const ref = useRef(null);
