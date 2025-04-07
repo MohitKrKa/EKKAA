@@ -1,21 +1,21 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import check from "../../assets/WhyChooseUs/check.svg";
-import im from "../../assets/WhyChooseUs/image.png";
-import im1 from "../../assets/WhyChooseUs/image1.png";
-import im2 from "../../assets/WhyChooseUs/image2.png";
-import im3 from "../../assets/WhyChooseUs/image3.png";
-import im4 from "../../assets/WhyChooseUs/image4.png";
-import im5 from "../../assets/WhyChooseUs/image5.png";
+import check from "/WhyChooseUs/check.svg";
+import im from "/WhyChooseUs/image.png";
+import im1 from "/WhyChooseUs/image1.png";
+import im2 from "/WhyChooseUs/image2.png";
+import im3 from "/WhyChooseUs/image3.png";
+import im4 from "/WhyChooseUs/image4.png";
+import im5 from "/WhyChooseUs/image5.png";
 import { useMediaQuery } from "react-responsive";
 
 const imageVariants = {
-  left: { x: -100, opacity: 0, transition: { duration: 1 } },
-  right: { x: 100, opacity: 0, transition: { duration: 1 } },
-  top: { y: -100, opacity: 0, transition: { duration: 1 } },
-  bottom: { y: 100, opacity: 0, transition: { duration: 1 } },
-  visible: { x: 0, y: 0, opacity: 1, transition: { duration: 1 } },
+  left: { x: -100, opacity: 0, transition: {delay:0.6, duration: 0.8 } },
+  right: { x: 100, opacity: 0, transition: {delay:0.6, duration: 0.8 } },
+  top: { y: -100, opacity: 0, transition: {delay:0.6, duration: 0.8 } },
+  bottom: { y: 100, opacity: 0, transition: {delay:0.6, duration: 0.8 } },
+  visible: { x: 0, y: 0, opacity: 1, transition: {delay:0.5, duration: 1 } },
 };
 
 const WhyChooseUs = () => {
@@ -27,8 +27,128 @@ const WhyChooseUs = () => {
   // Media query hooks
   const isDesktop = useMediaQuery({ minWidth: 1024 });
   const isMobile = useMediaQuery({ maxWidth: 1023 });
+//   const checkVariants = {
+//     hidden: { opacity: 0, scale: 0.8 },
+//     visible: (index) => ({
+//       scale: 1,
+//       opacity: 1,
+//       x: 0,
+//       transition: {
+//         delay: 1.3 + index * 0.2,
+//         type: "spring",
+//         stiffness: 300,
+//         damping: 15,
+//         bounce: 0.5,
+//       },
+//     }),
+//   };
+  
+  
 
-  // Desktop specific styles and components
+
+  
+//   const checkVariants = {
+//     hidden: { opacity: 0, y: 30 },
+//     visible: (index) => ({
+//       y: 0,
+//       opacity: 1,
+//       transition: {
+//         delay: 1 + index * 0.15,
+//         duration: 0.5,
+//         ease: "easeOut",
+//       },
+//     }),
+//   };
+
+// const checkVariants = {
+//     hidden: { opacity: 0, scale: 1.3, filter: "blur(6px)" },
+//     visible: (index) => ({
+//       opacity: 1,
+//       scale: 1,
+//       filter: "blur(0px)",
+//       transition: {
+//         delay: 1.1 + index * 0.25,
+//         duration: 0.6,
+//         ease: "easeOut",
+//       },
+//     }),
+//   };
+
+
+const checkVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: (index) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 1+  index * 0.1,
+        type: "spring",
+        stiffness: 500,
+        damping: 20,
+        ease: "easeOut",
+      },
+    }),
+  };
+
+
+
+
+// const checkVariants = {
+//     hidden: { opacity: 0, scale: 1.5 },
+//     visible: (index) => ({
+//       opacity: 1,
+//       scale: 1,
+//       transition: {
+//         delay: 1 + index * 0.1,
+//         duration: 0.3,
+//         ease: "easeInOut",
+//       },
+//     }),
+//   };
+
+
+// const checkVariants = {
+//     hidden: { opacity: 0, rotate: 60, scale: 0.6 },
+//     visible: (index) => ({
+//       rotate: 0,
+//       scale: 1,
+//       opacity: 1,
+//       transition: {
+//         delay: 1.3 + index * 0.2,
+//         duration: 0.7,
+//         type: "spring",
+//         stiffness: 180,
+//         damping: 14,
+//       },
+//     }),
+//   };
+
+
+// const checkVariants = {
+//     hidden: { opacity: 0, rotateY: 60 },
+//     visible: (index) => ({
+//       opacity: 1,
+//       rotateY: 0,
+//       transition: {
+//         delay: 1 + index * 0.2,
+//         duration: 0.6,
+//         ease: "easeOut",
+//       },
+//     }),
+//   };
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+    // Desktop specific styles and components
+  
   const DesktopView = () => (
     <div className="flex p-24 font-[Poppins]">
       <div className="flex flex-col pl-24 justify-center w-1/2">
@@ -46,15 +166,20 @@ const WhyChooseUs = () => {
               "Optimised Production and Value",
               "Compliance with Global Standards",
             ].map((text, index) => (
-              <li
+                <motion.li
                 key={index}
-                className="flex items-center text-[#525B68] gap-4 mt-5"
+                className="flex  items-center text-[#525B68] gap-4 mt-5"
               >
-                <img src={check} alt="" className="w-9" />
+                <motion.img src={check} alt="" className="w-9" 
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                variants={checkVariants}
+                custom={index}/>
                 <span className="font-[Poppins] font-[400] text-xl leading-relaxed">
                   {text}
                 </span>
-              </li>
+              </motion.li>
+              
             ))}
           </ul>
         </div>
