@@ -2,13 +2,14 @@ import React from "react";
 import { delay, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import check from "/WhyChooseUs/check.svg";
-import im from "/WhyChooseUs/image.png";
-import im1 from "/WhyChooseUs/image1.png";
-import im2 from "/WhyChooseUs/image2.png";
-import im3 from "/WhyChooseUs/image3.png";
-import im4 from "/WhyChooseUs/image4.png";
-import im5 from "/WhyChooseUs/image5.png";
+import im from "../../assets/WhyChooseUs/image.png";
+import im1 from "../../assets/WhyChooseUs/image1.png";
+import im2 from "../../assets/WhyChooseUs/image2.png";
+import im3 from "../../assets/WhyChooseUs/image3.png";
+import im4 from "../../assets/WhyChooseUs/image4.png";
+import im5 from "../../assets/WhyChooseUs/image5.png";
 import { useMediaQuery } from "react-responsive";
+
 
 const imageVariants = {
   left: { x: -100, opacity: 0, transition: {delay:0.6, duration: 0.8 } },
