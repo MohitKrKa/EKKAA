@@ -1,7 +1,7 @@
 import React from "react";
 import { delay, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import check from "/WhyChooseUs/check.svg";
+import check from "../../assets/WhyChooseUs/check.svg";
 import im from "../../assets/WhyChooseUs/image.png";
 import im1 from "../../assets/WhyChooseUs/image1.png";
 import im2 from "../../assets/WhyChooseUs/image2.png";
